@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-07-2014 a las 07:12:51
+-- Tiempo de generación: 21-07-2014 a las 09:04:30
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `dispositivo` (
 
 INSERT INTO `dispositivo` (`IdDispositivo`, `NombreDispositivo`, `DescripcionDispositivo`, `Cantidad`, `Disponibles`, `TipoDispositivo`) VALUES
 (1, 'Pc Investigacion1', 'Intel Core i5 8Gb Ram', 2, 1, 'Pc'),
-(1110, 'Microscopio Optico', 'Esta en buen estado', 2, 2, 'Microscopio');
+(2, 'VideoBeam', 'Esta en muy buen estado', 4, 4, 'Proyectores');
 
 -- --------------------------------------------------------
 
@@ -67,6 +67,13 @@ CREATE TABLE IF NOT EXISTS `prestamo` (
   KEY `numeroDocumento` (`NumeroDocumento`),
   KEY `tipoDocumentoPrestamo` (`TipoDocumento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `prestamo`
+--
+
+INSERT INTO `prestamo` (`IdPrestamo`, `FechaPrestamo`, `HoraInicio`, `HoraFin`, `HoraEntrega`, `Cantidad`, `Observacion`, `NumeroDocumento`, `TipoDocumento`, `IdDispositivo`) VALUES
+(1, '2014-07-21', '08:01:28', '10:01:28', '09:50:00', 1, 'Se entrego el producto en buen estado', 1036941185, 'Cedula', 1);
 
 -- --------------------------------------------------------
 
@@ -110,6 +117,13 @@ CREATE TABLE IF NOT EXISTS `solicitud` (
   KEY `idDispositivoSolicitud` (`IdDispositivo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `solicitud`
+--
+
+INSERT INTO `solicitud` (`IdSolicitud`, `FechaSolicitud`, `FechaPrestamo`, `HoraInicioPrestamo`, `HoraFinPrestamo`, `Cantidad`, `NumeroDocumento`, `TipoDocumento`, `IdDispositivo`) VALUES
+(1, '2014-07-21', '2014-07-22', '10:03:01', '11:30:01', 1, 5982, 'Id', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -129,6 +143,7 @@ CREATE TABLE IF NOT EXISTS `tipodispositivo` (
 INSERT INTO `tipodispositivo` (`TipoDispositivo`, `Descripcion`) VALUES
 ('Microscopio', 'Categoria para los diferentes microscopios.'),
 ('Pc', 'Categoria para los computadores de escritorio'),
+('Proyectores', 'Dispositivos como Video Beam,etc.'),
 ('Transistror', 'Descripcion del transistor :P');
 
 -- --------------------------------------------------------
@@ -169,6 +184,14 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   KEY `rol` (`Rol`),
   KEY `tipoDocumento` (`TipoDocumento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`NumeroDocumento`, `TipoDocumento`, `Nombre`, `Apellido`, `Contrasena`, `Email`, `Rol`) VALUES
+(5982, 'Id', 'David', 'Florez', '123', 'david.r.florez@algo.com', 'Investigador'),
+(1036941185, 'Cedula', 'Cristian', 'Ospina', 'contrasena1', 'ospinaospinacristian@gmail.com', 'Administrador');
 
 --
 -- Restricciones para tablas volcadas
