@@ -1,6 +1,7 @@
 package com.edu.udea.dto;
+import java.io.Serializable;
 
-public class Usuario {
+public class Usuario implements Serializable{
 	
 	private int numeroDocumento;
 	private String nombre;
@@ -13,6 +14,12 @@ public class Usuario {
 	
 	public Usuario(){
 		
+	}
+	
+	public Usuario(int numeroDocumento, TipoDocumento tipoDocumento) {
+		super();
+		this.numeroDocumento = numeroDocumento;
+		this.tipoDocumento = tipoDocumento;
 	}
 	
 	public Usuario(int numeroDocumento, String nombre, String apellido,

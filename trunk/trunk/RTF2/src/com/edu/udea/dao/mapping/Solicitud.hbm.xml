@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 20/07/2014 05:41:07 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.edu.udea.dto.Solicitud" table="SOLICITUD">
         <id name="idSolicitud" type="int">
@@ -24,7 +23,8 @@
             <column name="CANTIDAD" />
         </property>
         <many-to-one name="usuario" class="com.edu.udea.dto.Usuario" fetch="join">
-            <column name="USUARIO" />
+            <column name="NUMERODOCUMENTO" />
+            <column name="TIPODOCUMENTO" />
         </many-to-one>
         <many-to-one name="dispositivo" class="com.edu.udea.dto.Dispositivo" fetch="join">
             <column name="DISPOSITIVO" />

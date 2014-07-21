@@ -55,5 +55,9 @@
     <bean id="tipoDocumentoDAO" class="com.edu.udea.dao.hibernate.TipoDocumentoDAOHibernate">
          <property name="sessionFactory" ref="sessionFactory"/>  
     </bean> 
+    														
+    <bean id="usuarioDAO" class="com.edu.udea.dao.hibernate.UsuarioDAOHibernate">
+         <property name="sessionFactory" ref="sessionFactory"/>  
+    </bean>
 
 </beans>
