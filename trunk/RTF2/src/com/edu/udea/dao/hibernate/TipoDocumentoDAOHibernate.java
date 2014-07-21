@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.edu.udea.dao.TipoDocumentoDAO;
@@ -42,19 +43,47 @@ public class TipoDocumentoDAOHibernate extends HibernateDaoSupport implements Ti
 
 	@Override
 	public void AgregarTipoDocumento(TipoDocumento tipo) throws DAOException {
-		// TODO Auto-generated method stub
+		Session session = null;
+		Transaction tx = null;
+		try{
+			session = getSession();			
+			tx = session.beginTransaction();
+			session.save(tipo);
+			tx.commit();
+		}catch(HibernateException e){
+			throw new DAOException(e);
+		}
+		
 		
 	}
 
 	@Override
 	public void EliminarTipoDocumento(TipoDocumento tipo) throws DAOException {
-		// TODO Auto-generated method stub
+		Session session = null;
+		Transaction tx = null;
+		try{
+			session = getSession();			
+			tx = session.beginTransaction();
+			session.delete(tipo);
+			tx.commit();
+		}catch(HibernateException e){
+			throw new DAOException(e);
+		}
 		
 	}
 
 	@Override
 	public void ActualizarTipoDocumento(TipoDocumento tipo) throws DAOException {
-		// TODO Auto-generated method stub
+		Session session = null;
+		Transaction tx = null;
+		try{
+			session = getSession();			
+			tx = session.beginTransaction();
+			session.update(tipo);
+			tx.commit();
+		}catch(HibernateException e){
+			throw new DAOException(e);
+		}
 		
 	}
 	
