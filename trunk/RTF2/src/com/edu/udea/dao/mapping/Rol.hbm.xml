@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.edu.udea.dto.Rol" table="ROL">
+    <class name="com.edu.udea.dto.Rol" table="rol">
         <id name="rol" type="java.lang.String">
             <column name="ROL" />
             <generator class="assigned" />
