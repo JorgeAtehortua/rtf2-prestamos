@@ -30,7 +30,7 @@
             <column name="TIPODOCUMENTO" />
         </many-to-one>
         <many-to-one name="dispositivo" class="com.edu.udea.dto.Dispositivo" fetch="join">
-            <column name="DISPOSITIVO" />
+            <column name="IDDISPOSITIVO" />
         </many-to-one>
     </class>
 </hibernate-mapping>

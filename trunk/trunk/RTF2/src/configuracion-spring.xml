@@ -59,5 +59,9 @@
     <bean id="usuarioDAO" class="com.edu.udea.dao.hibernate.UsuarioDAOHibernate">
          <property name="sessionFactory" ref="sessionFactory"/>  
     </bean>
+    
+    <bean id="prestamoDAO" class="com.edu.udea.dao.hibernate.PrestamoDAOHibernate">
+         <property name="sessionFactory" ref="sessionFactory"/>  
+    </bean>
 
 </beans>
