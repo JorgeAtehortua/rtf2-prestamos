@@ -2,8 +2,10 @@ package com.edu.udea.dao.hibernate.test;
 
 import static org.junit.Assert.*;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -16,15 +18,15 @@ import com.edu.udea.dto.Usuario;
 import com.edu.udea.util.exception.DAOException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@Transactional
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UsuarioDAOHibernateTest {
 
 	@Autowired
 	UsuarioDAO usuarioDAO; 
 	
 	@Test
-	public void testObtenerUsuario() {
+	public void test1ObtenerUsuario() {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para obtener un Usuario");
 		try{			
@@ -38,7 +40,7 @@ public class UsuarioDAOHibernateTest {
 	}
 	
 	@Test
-	public void testObtenerUsuarios() {
+	public void test2ObtenerUsuarios() {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para obtener todos Usuario");
 		try{	
@@ -52,15 +54,15 @@ public class UsuarioDAOHibernateTest {
 		}
 	}
 	
-	/*
+	
 	@Test
-	public void testAgrearUsuarios() {
+	public void test3AgrearUsuarios() {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para agregar un Usuario");
 		try{	
 			Usuario usuario =  new Usuario(15988, "Jason", "Angel", "password", "angel@udea.edu.co", new TipoDocumento("Id",""), new Rol("Investigador", ""));
 			usuarioDAO.agregarUsuario(usuario);
-			assertTrue(true);
+			assertNotNull(usuarioDAO.obtenerUsuario(15988, new TipoDocumento("Id","")));
 		}catch (DAOException e){
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -69,17 +71,17 @@ public class UsuarioDAOHibernateTest {
 	
 	
 	@Test
-	public void testModificarUsuario() {
+	public void test4ModificarUsuario() {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para agregar un Usuario");
 		try{	
 			Usuario usuario =  usuarioDAO.obtenerUsuario(15988, new TipoDocumento("Id",""));
 			usuario.setApellido("ANGEL ANGEL");
 			usuarioDAO.modificarUsuario(usuario);
-			assertTrue(true);
+			assertEquals("ANGEL ANGEL", usuarioDAO.obtenerUsuario(15988, new TipoDocumento("Id","")).getApellido());
 		}catch (DAOException e){
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
-	}*/
+	}
 }

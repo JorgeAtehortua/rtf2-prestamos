@@ -2,8 +2,10 @@ package com.edu.udea.dao.hibernate.test;
 
 import static org.junit.Assert.*;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -15,15 +17,15 @@ import com.edu.udea.dto.TipoDispositivo;
 import com.edu.udea.util.exception.DAOException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@Transactional
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DispositivoDAOHibernateTest {
 	
 	@Autowired
 	DispositivoDAO dispositivoDao;
 	
 	@Test
-	public void testObtenerDispositivo() {
+	public void test1ObtenerDispositivo() {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para obtener un dispositivo");
 		try{			
@@ -38,7 +40,7 @@ public class DispositivoDAOHibernateTest {
 	}
 	
 	@Test
-	public void testObtenerDispositivos() {
+	public void test2ObtenerDispositivos() {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para obtener todos los dispositivos");
 		try{			
@@ -54,31 +56,15 @@ public class DispositivoDAOHibernateTest {
 	}
 	
 	
-	/*				
+					
 	@Test
-	public void testAgregarDispositivo() {
+	public void test3AgregarDispositivo() {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para Agregar un dispositivo");
 		try{
 			Dispositivo dispositivo = new Dispositivo(1110, "Microscopio Optico", "Esta en buen estado", 2, 2, new TipoDispositivo("Microscopio", ""));			
 			dispositivoDao.agregarDispositivo(dispositivo);
-			assertTrue(true);
-		
-		} catch (DAOException e){
-			e.printStackTrace();
-			fail(e.getMessage());
-		}
-	}
-	/*
-	@Test
-	public void testActualizarDispositivo() {
-		System.out.println("__________________________________________________");
-		System.out.println("Test para actualizar un dispositivo");
-		try{			
-			Dispositivo dispositivo = dispositivoDao.obtenerDispositivo(1);
-			dispositivo.setCantidad(dispositivo.getCantidad()+1);
-			dispositivoDao.actualizarDispositivo(dispositivo);
-			assertTrue(true);
+			assertNotNull(dispositivoDao.obtenerDispositivo(1110));
 		
 		} catch (DAOException e){
 			e.printStackTrace();
@@ -87,18 +73,34 @@ public class DispositivoDAOHibernateTest {
 	}
 	
 	@Test
-	public void testEliminarDispositivo() {
+	public void test4ActualizarDispositivo() {
 		System.out.println("__________________________________________________");
-		System.out.println("Test para eliminar un dispositivo");
+		System.out.println("Test para actualizar un dispositivo");
 		try{			
-			Dispositivo dispositivo = dispositivoDao.obtenerDispositivo(1110);	
-			dispositivoDao.eliminarDispositivo(dispositivo);
-			assertTrue(true);
+			Dispositivo dispositivo = dispositivoDao.obtenerDispositivo(1110);
+			dispositivo.setDescripcionDispositivo("Test");
+			dispositivoDao.actualizarDispositivo(dispositivo);
+			assertEquals("Test", dispositivoDao.obtenerDispositivo(1110).getDescripcionDispositivo());
 		
 		} catch (DAOException e){
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
 	}
-	*/
+	
+	@Test
+	public void test5EliminarDispositivo() {
+		System.out.println("__________________________________________________");
+		System.out.println("Test para eliminar un dispositivo");
+		try{			
+			Dispositivo dispositivo = dispositivoDao.obtenerDispositivo(1110);	
+			dispositivoDao.eliminarDispositivo(dispositivo);
+			assertNull(dispositivoDao.obtenerDispositivo(1110));
+		
+		} catch (DAOException e){
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
 }

@@ -2,8 +2,10 @@ package com.edu.udea.dao.hibernate.test;
 
 import static org.junit.Assert.*;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -14,15 +16,15 @@ import com.edu.udea.dto.TipoDocumento;
 import com.edu.udea.util.exception.DAOException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@Transactional
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TipoDocumentoDAOHibernateTest {
 	
 	@Autowired
 	TipoDocumentoDAO tipoDocumentoDAO;
 	
 	@Test
-	public void testObtenerTipoDocumento() {
+	public void test1ObtenerTipoDocumento() {
 		System.out.println("__________________________________________________");
 		System.out.println("Corriendo Test para Obtener un tipo de documento");
 		try{
@@ -36,7 +38,7 @@ public class TipoDocumentoDAOHibernateTest {
 	}
 	
 	@Test
-	public void testObtenerTiposDocumento() {
+	public void test2ObtenerTiposDocumento() {
 		System.out.println("__________________________________________________");
 		System.out.println("Corriendo Test para Obtener todos los tipos de documento");
 		try{
@@ -50,15 +52,15 @@ public class TipoDocumentoDAOHibernateTest {
 		}
 	}
 	
-	/*
+	
 	@Test
-	public void testAgregarTiposDocumento() {
+	public void test3AgregarTiposDocumento() {
 		System.out.println("__________________________________________________");
 		System.out.println("Corriendo Test para Agregar un tipo de documento");
 		try{
 			TipoDocumento tipoDocumento= new TipoDocumento("Pasaporte", "Usado por investigadores extranjeros");
 			tipoDocumentoDAO.AgregarTipoDocumento(tipoDocumento);				
-			assertTrue(true);
+			assertNotNull(tipoDocumentoDAO.obtenerTipoDocumento("Pasaporte"));
 		} catch (DAOException e){
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -67,14 +69,14 @@ public class TipoDocumentoDAOHibernateTest {
 
 	
 	@Test
-	public void testModificarTiposDocumento() {
+	public void test4ModificarTiposDocumento() {
 		System.out.println("__________________________________________________");
 		System.out.println("Corriendo Test para Modificar un tipo de documento");
 		try{
 			TipoDocumento tipoDocumento=tipoDocumentoDAO.obtenerTipoDocumento("Pasaporte");
 			tipoDocumento.setDescripcion("Descripcion actualizada desde el test");
 			tipoDocumentoDAO.ActualizarTipoDocumento(tipoDocumento);				
-			assertTrue(true);
+			assertEquals("Descripcion actualizada desde el test", tipoDocumentoDAO.obtenerTipoDocumento("Pasaporte").getDescripcion());
 		} catch (DAOException e){
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -83,19 +85,19 @@ public class TipoDocumentoDAOHibernateTest {
 	
 	
 	@Test
-	public void testEliminarTiposDocumento() {
+	public void test5EliminarTiposDocumento() {
 		System.out.println("__________________________________________________");
 		System.out.println("Corriendo Test para Eliminar un tipo de documento");
 		try{
 			TipoDocumento tipoDocumento=tipoDocumentoDAO.obtenerTipoDocumento("Pasaporte");
 			tipoDocumentoDAO.EliminarTipoDocumento(tipoDocumento);				
-			assertTrue(true);
+			assertNull(tipoDocumentoDAO.obtenerTipoDocumento("Pasaporta"));
 		} catch (DAOException e){
 			e.printStackTrace();
 			fail(e.getMessage());
 		}
 	}
 	
-	*/
+	
 
 }
