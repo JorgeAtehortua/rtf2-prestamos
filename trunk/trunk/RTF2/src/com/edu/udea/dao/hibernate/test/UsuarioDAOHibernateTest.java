@@ -9,7 +9,6 @@ import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.edu.udea.dao.UsuarioDAO;
 import com.edu.udea.dto.Rol;
@@ -60,9 +59,9 @@ public class UsuarioDAOHibernateTest {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para agregar un Usuario");
 		try{	
-			Usuario usuario =  new Usuario(15988, "Jason", "Angel", "password", "angel@udea.edu.co", new TipoDocumento("Id",""), new Rol("Investigador", ""));
+			Usuario usuario =  new Usuario(15989, "Jason", "Angel", "password", "angel@udea.edu.co", new TipoDocumento("Id",""), new Rol("Investigador", ""));
 			usuarioDAO.agregarUsuario(usuario);
-			assertNotNull(usuarioDAO.obtenerUsuario(15988, new TipoDocumento("Id","")));
+			assertNotNull(usuarioDAO.obtenerUsuario(15989, new TipoDocumento("Id","")));
 		}catch (DAOException e){
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -75,10 +74,24 @@ public class UsuarioDAOHibernateTest {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para agregar un Usuario");
 		try{	
-			Usuario usuario =  usuarioDAO.obtenerUsuario(15988, new TipoDocumento("Id",""));
+			Usuario usuario =  usuarioDAO.obtenerUsuario(15989, new TipoDocumento("Id",""));
 			usuario.setApellido("ANGEL ANGEL");
 			usuarioDAO.modificarUsuario(usuario);
-			assertEquals("ANGEL ANGEL", usuarioDAO.obtenerUsuario(15988, new TipoDocumento("Id","")).getApellido());
+			assertEquals("ANGEL ANGEL", usuarioDAO.obtenerUsuario(15989, new TipoDocumento("Id","")).getApellido());
+		}catch (DAOException e){
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void test5EliminarUsuario() {
+		System.out.println("__________________________________________________");
+		System.out.println("Test para eliminar un Usuario");
+		try{	
+			Usuario usuario =  usuarioDAO.obtenerUsuario(15989, new TipoDocumento("Id",""));
+			usuarioDAO.eliminarUsuario(usuario);
+			assertNull(usuarioDAO.obtenerUsuario(15989, new TipoDocumento("Id","")));
 		}catch (DAOException e){
 			e.printStackTrace();
 			fail(e.getMessage());

@@ -73,5 +73,20 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		
 	}
 
+	@Override
+	public void eliminarUsuario(Usuario usuario) throws DAOException {
+		Session session = null;
+		Transaction tx = null;
+		try{
+			session = getSession();
+			tx = session.beginTransaction();
+			session.delete(usuario);
+			tx.commit();			
+		}catch(HibernateException e){
+			throw new DAOException(e);
+		}
+		
+	}
+
 
 }

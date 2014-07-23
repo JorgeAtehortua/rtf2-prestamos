@@ -15,7 +15,7 @@ public interface SolicitudDAO {
 	
 	public void modificarrSolicitud(Solicitud solicitud) throws DAOException;
 	
-	public void actualizarSolicitud(Solicitud solicitud) throws DAOException;
+	public void eliminarSolicitud(Solicitud solicitud) throws DAOException;
 	
 
 }
