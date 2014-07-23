@@ -75,6 +75,12 @@
     <bean id="investigadorBLImplements" class="com.edu.udea.bl.impl.InvestigadorBLImplements">
 		<property name="dispositivoDAO" ref="dispositivoDAO"/>  
 		<property name="solicitudDAO" ref="solicitudDAO"/>
-    </bean>  
+    </bean>     
+    <bean id="administradorBLImplements" class="com.edu.udea.bl.impl.AdministradorBLImplements">
+		<property name="prestamoDAO" ref="prestamoDAO"/> 
+		<property name="tipoDispositivoDAO" ref="tipoDispositivoDAO"/> 
+		<property name="dispositivoDAO" ref="dispositivoDAO"/>  
+		<property name="solicitudDAO" ref="solicitudDAO"/>
+    </bean> 
 
 </beans>

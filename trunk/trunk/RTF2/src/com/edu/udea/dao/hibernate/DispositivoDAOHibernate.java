@@ -15,7 +15,7 @@ import com.edu.udea.util.exception.DAOException;
 public class DispositivoDAOHibernate extends HibernateDaoSupport implements DispositivoDAO{
 	
 	public DispositivoDAOHibernate() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
