@@ -2,6 +2,8 @@ package com.edu.udea.dao.hibernate.test;
 
 import static org.junit.Assert.*;
 
+import org.apache.log4j.PropertyConfigurator;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,11 @@ import com.edu.udea.util.exception.DAOException;
 @Transactional
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 public class RolDAOHibernateTest {
+	
+	@BeforeClass
+    public static void startup() {
+        PropertyConfigurator.configure("log4j.properties");
+    }
 	
 	@Autowired
 	RolDAO rolDAO;

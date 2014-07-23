@@ -29,10 +29,25 @@ public interface DispositivoDAO {
 	 */
 	public Dispositivo obtenerDispositivo(Integer id) throws DAOException;
 	
+	/**
+	 * 
+	 * @param dispositivo
+	 * @throws DAOException
+	 */
 	public void agregarDispositivo(Dispositivo dispositivo) throws DAOException;
 	
+	/**
+	 * 
+	 * @param dispositivo
+	 * @throws DAOException
+	 */
 	public void eliminarDispositivo(Dispositivo dispositivo) throws DAOException;
 	
+	/**
+	 * 
+	 * @param dispositivo
+	 * @throws DAOException
+	 */
 	public void actualizarDispositivo(Dispositivo dispositivo) throws DAOException;
 	
 

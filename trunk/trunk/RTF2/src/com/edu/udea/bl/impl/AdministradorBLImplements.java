@@ -35,15 +35,27 @@ public class AdministradorBLImplements  implements AdministradorBL  {
 	public void setPrestamoDAO(PrestamoDAO prestamoDAO) {
 		this.prestamoDAO = prestamoDAO;
 	}
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public SolicitudDAO getSolicitudDAO() {
 		return solicitudDAO;
 	}
-
+	
+	/**
+	 * 
+	 * @param solicitudDAO
+	 */
 	public void setSolicitudDAO(SolicitudDAO solicitudDAO) {
 		this.solicitudDAO = solicitudDAO;
 	}
 
+	/**
+	 * 
+	 * @return 
+	 */
 	public DispositivoDAO getDispositivoDAO() {
 		return dispositivoDAO;
 	}
@@ -84,6 +96,36 @@ public class AdministradorBLImplements  implements AdministradorBL  {
 	}
 
 	@Override
+	public void crearDispositivo(int idDispositivo, String nombreDispositivo,
+			String descripcionDispositivo, int cantidad, int disponibles,
+			TipoDispositivo tipoDispositivo) throws DAOException {
+		Dispositivo dispositivo= new  Dispositivo(idDispositivo, nombreDispositivo, 
+				descripcionDispositivo, cantidad, disponibles, tipoDispositivo);
+		getDispositivoDAO().agregarDispositivo(dispositivo);
+		
+		
+	}
+
+	@Override
+	public void eliminarDispositivo(int idDispositivo) throws DAOException {
+		Dispositivo dispositivo = new Dispositivo();
+		dispositivo.setIdDispositivo(idDispositivo);
+		getDispositivoDAO().eliminarDispositivo(dispositivo);
+		
+	}
+
+	@Override
+	public void modificarDispositivo(int idDispositivo,
+			String nombreDispositivo, String descripcionDispositivo,
+			int cantidad, int disponibles, TipoDispositivo tipoDispositivo)
+			throws DAOException {
+		Dispositivo dispositivo = new Dispositivo(idDispositivo, nombreDispositivo, 
+				descripcionDispositivo, cantidad, disponibles, tipoDispositivo);
+		getDispositivoDAO().actualizarDispositivo(dispositivo);
+		
+	}
+
+	@Override
 	public Solicitud consultarSolicitud(int idSolicitud) throws BLException,
 			DAOException {
 		Solicitud solicitud= null;
@@ -105,40 +147,23 @@ public class AdministradorBLImplements  implements AdministradorBL  {
             throw new BLException("No hay solicitudes");
 		return solicitudes;		
 	}
-
+	
 	@Override
-	public void crearDispositivo(int idDispositivo, String nombreDispositivo,
-			String descripcionDispositivo, int cantidad, int disponibles,
-			TipoDispositivo tipoDispositivo) throws DAOException {
-		// TODO Auto-generated method stub
+	public Prestamo consultarPrestamo(int id) throws DAOException, BLException {
+		Prestamo prestamo= getPrestamoDAO().obtenerPrestamo(id);
 		
+		if (prestamo == null)
+            throw new BLException("No hay ningun prestamo con el id : "
+                            + id);
+		return prestamo;
 	}
 
 	@Override
-	public void eliminarDispositivo(int idDispositivo) throws DAOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actualizarDispositivo(int idDispositivo,
-			String nombreDispositivo, String descripcionDispositivo,
-			int cantidad, int disponibles, TipoDispositivo tipoDispositivo)
-			throws DAOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Prestamo consultarPrestamo(int id) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Prestamo> consultarPrestamos() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Prestamo> consultarPrestamos() throws DAOException, BLException {
+		List<Prestamo> prestamos= getPrestamoDAO().obtenerPrestamos();
+		if (prestamos == null)
+            throw new BLException("No hay prestamos");
+		return prestamos;
 	}
 
 	@Override
@@ -146,7 +171,9 @@ public class AdministradorBLImplements  implements AdministradorBL  {
 			Time horaInicio, Time horaFin, Time horaEntrega, int cantidad,
 			String observacion, Usuario usuario, Dispositivo dispositivo)
 			throws DAOException {
-		// TODO Auto-generated method stub
+		Prestamo prestamo = new Prestamo(idPrestamo, fechaPrestamo, horaInicio, 
+				horaFin, horaEntrega, cantidad, observacion, usuario, dispositivo);
+		getPrestamoDAO().agregarPrestamo(prestamo);
 		
 	}
 
@@ -155,47 +182,59 @@ public class AdministradorBLImplements  implements AdministradorBL  {
 			Time horaInicio, Time horaFin, Time horaEntrega, int cantidad,
 			String observacion, Usuario usuario, Dispositivo dispositivo)
 			throws DAOException {
-		// TODO Auto-generated method stub
+		Prestamo prestamo = new Prestamo(idPrestamo, fechaPrestamo, horaInicio, horaFin, 
+				horaEntrega, cantidad, observacion, usuario, dispositivo);
+		getPrestamoDAO().modificarPrestamo(prestamo);
 		
 	}
 
 	@Override
 	public void eliminarPrestamo(int idPrestamo) throws DAOException {
-		// TODO Auto-generated method stub
+		Prestamo prestamo = new Prestamo();
+		prestamo.setIdPrestamo(idPrestamo);
+		getPrestamoDAO().eliminarPrestamo(prestamo);		
 		
 	}
 
 	@Override
-	public TipoDispositivo obtenerTipoDispositivo(String tipoD)
-			throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public TipoDispositivo consultarTipoDispositivo(String tipoD)
+			throws DAOException, BLException {
+		TipoDispositivo tipoDispositivo= getTipoDispositivoDAO().obtenerTipoDispositivo(tipoD);
+		if (tipoDispositivo == null)
+            throw new BLException("No hay un tipo dispositivo igual a " + tipoD);
+		return tipoDispositivo;
 	}
 
 	@Override
-	public List<TipoDispositivo> obtenerTiposDispositivos() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<TipoDispositivo> consultarTiposDispositivos() throws DAOException, BLException {
+		List<TipoDispositivo> tipoDispositivos= getTipoDispositivoDAO().obtenerTiposDispositivos();
+		if (tipoDispositivos == null)
+            throw new BLException("No hay tipos de dispositivos" );
+		return tipoDispositivos;
 	}
 
 	@Override
 	public void crearTipoDispositivo(String tipoDispositivo, String descripcion)
 			throws DAOException {
-		// TODO Auto-generated method stub
+		TipoDispositivo tipoD= new TipoDispositivo(tipoDispositivo, descripcion);
+		getTipoDispositivoDAO().agregarTipoDispositivo(tipoD);
 		
 	}
 
 	@Override
-	public void eliminarTipoDispositivo(TipoDispositivo tipoDispositivo)
+	public void eliminarTipoDispositivo(String tipoDispositivo)
 			throws DAOException {
-		// TODO Auto-generated method stub
+		TipoDispositivo tipoD= new TipoDispositivo();
+		tipoD.setTipoDispositivo(tipoDispositivo);
+		getTipoDispositivoDAO().eliminarTipoDispositivo(tipoD);
 		
 	}
-
+	
 	@Override
 	public void actualizarTipoDispositivo(String tipoDispositivo,
 			String descripcion) throws DAOException {
-		// TODO Auto-generated method stub
+		TipoDispositivo tipoD= new TipoDispositivo(tipoDispositivo, descripcion);
+		getTipoDispositivoDAO().actualizarTipoDispositivo(tipoD);
 		
 	}
 
