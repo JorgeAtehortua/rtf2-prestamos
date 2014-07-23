@@ -24,7 +24,7 @@ public interface AdministradorBL {
 	
 	public void eliminarDispositivo(int idDispositivo) throws DAOException;
 	
-	public void actualizarDispositivo(int idDispositivo, String nombreDispositivo,
+	public void modificarDispositivo(int idDispositivo, String nombreDispositivo,
 			String descripcionDispositivo, int cantidad, int disponibles,
 			TipoDispositivo tipoDispositivo) throws DAOException;
 	
@@ -47,13 +47,13 @@ public interface AdministradorBL {
 	
 	public void eliminarPrestamo(int idPrestamo) throws BLException, DAOException;
 	
-	public TipoDispositivo obtenerTipoDispositivo(String tipoD) throws BLException, DAOException;
+	public TipoDispositivo consultarTipoDispositivo(String tipoD) throws BLException, DAOException;
 	
-	public List<TipoDispositivo> obtenerTiposDispositivos() throws BLException, DAOException;
+	public List<TipoDispositivo> consultarTiposDispositivos() throws BLException, DAOException;
 	
 	public void crearTipoDispositivo(String tipoDispositivo, String descripcion) throws BLException, DAOException;
 	
-	public void eliminarTipoDispositivo(TipoDispositivo tipoDispositivo) throws BLException, DAOException;
+	public void eliminarTipoDispositivo(String tipoDispositivo) throws BLException, DAOException;
 	
 	public void actualizarTipoDispositivo(String tipoDispositivo, String descripcion) throws BLException, DAOException;
 

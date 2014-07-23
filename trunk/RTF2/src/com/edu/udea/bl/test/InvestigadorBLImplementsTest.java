@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.sql.Time;
 import java.util.Date;
 
+import org.apache.log4j.PropertyConfigurator;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +29,11 @@ import com.edu.udea.util.exception.DAOException;
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class InvestigadorBLImplementsTest {
+	
+	@BeforeClass
+    public static void startup() {
+        PropertyConfigurator.configure("log4j.properties");
+    }
 	
 	@Autowired
 	UsuarioBLImplements usuarioImpl;

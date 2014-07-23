@@ -2,6 +2,8 @@ package com.edu.udea.dao.hibernate.test;
 
 import static org.junit.Assert.*;
 
+import org.apache.log4j.PropertyConfigurator;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.junit.runners.MethodSorters;
+
 import com.edu.udea.dao.TipoDispositivoDAO;
 import com.edu.udea.dto.TipoDispositivo;
 import com.edu.udea.util.exception.DAOException;
@@ -17,6 +20,11 @@ import com.edu.udea.util.exception.DAOException;
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TipoDipositivoDAOHibernateTest {
+	
+	@BeforeClass
+    public static void startup() {
+        PropertyConfigurator.configure("log4j.properties");
+    }
 	
 	@Autowired
 	TipoDispositivoDAO tipoDispositivoDAO;

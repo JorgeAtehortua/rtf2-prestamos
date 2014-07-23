@@ -2,6 +2,8 @@ package com.edu.udea.dao.hibernate.test;
 
 import static org.junit.Assert.*;
 
+import org.apache.log4j.PropertyConfigurator;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +23,11 @@ import com.edu.udea.util.exception.DAOException;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UsuarioDAOHibernateTest {
 
+	@BeforeClass
+    public static void startup() {
+        PropertyConfigurator.configure("log4j.properties");
+    }
+	
 	@Autowired
 	UsuarioDAO usuarioDAO; 
 	
