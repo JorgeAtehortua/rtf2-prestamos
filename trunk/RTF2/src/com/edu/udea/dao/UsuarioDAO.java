@@ -15,4 +15,6 @@ public interface UsuarioDAO {
 	public void agregarUsuario(Usuario usuario) throws DAOException;
 	
 	public void modificarUsuario(Usuario usuario) throws DAOException;
+	
+	public void eliminarUsuario(Usuario usuario) throws DAOException;
 }
