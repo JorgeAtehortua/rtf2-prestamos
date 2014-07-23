@@ -64,7 +64,7 @@
          <property name="sessionFactory" ref="sessionFactory"/>  
     </bean>
     
-    <bean id="dispositivoBLImplements" class="com.edu.udea.bl.impl.DispositivoBLImplements">
+    <bean id="usuarioBLImplements" class="com.edu.udea.bl.impl.UsuarioBLImplements">
 		<property name="dispositivoDAO" ref="dispositivoDAO"/>  
     </bean>  
 
