@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-07-2014 a las 09:04:30
+-- Tiempo de generación: 23-07-2014 a las 10:06:54
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -117,13 +117,6 @@ CREATE TABLE IF NOT EXISTS `solicitud` (
   KEY `idDispositivoSolicitud` (`IdDispositivo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `solicitud`
---
-
-INSERT INTO `solicitud` (`IdSolicitud`, `FechaSolicitud`, `FechaPrestamo`, `HoraInicioPrestamo`, `HoraFinPrestamo`, `Cantidad`, `NumeroDocumento`, `TipoDocumento`, `IdDispositivo`) VALUES
-(1, '2014-07-21', '2014-07-22', '10:03:01', '11:30:01', 1, 5982, 'Id', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -208,16 +201,16 @@ ALTER TABLE `dispositivo`
 --
 ALTER TABLE `prestamo`
   ADD CONSTRAINT `iddispositivo` FOREIGN KEY (`IdDispositivo`) REFERENCES `dispositivo` (`IdDispositivo`),
-  ADD CONSTRAINT `numeroDocumento` FOREIGN KEY (`NumeroDocumento`) REFERENCES `usuario` (`NumeroDocumento`),
-  ADD CONSTRAINT `tipoDocumentoPrestamo` FOREIGN KEY (`TipoDocumento`) REFERENCES `usuario` (`TipoDocumento`);
+  ADD CONSTRAINT `numeroDocumento` FOREIGN KEY (`NumeroDocumento`) REFERENCES `usuario` (`NumeroDocumento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tipoDocumentoPrestamo` FOREIGN KEY (`TipoDocumento`) REFERENCES `usuario` (`TipoDocumento`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
   ADD CONSTRAINT `idDispositivoSolicitud` FOREIGN KEY (`IdDispositivo`) REFERENCES `dispositivo` (`IdDispositivo`),
-  ADD CONSTRAINT `numeroDocumentoSolicitud` FOREIGN KEY (`NumeroDocumento`) REFERENCES `usuario` (`NumeroDocumento`),
-  ADD CONSTRAINT `tipoDocumentoSolicitud` FOREIGN KEY (`TipoDocumento`) REFERENCES `usuario` (`TipoDocumento`);
+  ADD CONSTRAINT `numeroDocumentoSolicitud` FOREIGN KEY (`NumeroDocumento`) REFERENCES `usuario` (`NumeroDocumento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tipoDocumentoSolicitud` FOREIGN KEY (`TipoDocumento`) REFERENCES `usuario` (`TipoDocumento`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`
