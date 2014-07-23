@@ -64,8 +64,17 @@
          <property name="sessionFactory" ref="sessionFactory"/>  
     </bean>
     
+    <bean id="solicitudDAO" class="com.edu.udea.dao.hibernate.SolicitudDAOHibernate">
+         <property name="sessionFactory" ref="sessionFactory"/>  
+    </bean>
+    
     <bean id="usuarioBLImplements" class="com.edu.udea.bl.impl.UsuarioBLImplements">
 		<property name="dispositivoDAO" ref="dispositivoDAO"/>  
+    </bean>  
+    
+    <bean id="investigadorBLImplements" class="com.edu.udea.bl.impl.InvestigadorBLImplements">
+		<property name="dispositivoDAO" ref="dispositivoDAO"/>  
+		<property name="solicitudDAO" ref="solicitudDAO"/>
     </bean>  
 
 </beans>

@@ -90,9 +90,6 @@ public class PrestamoDAOHibernateTest {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para Modificar un prestamo");
 		try {
-			Date date= new Date(1994,5,25);
-			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
 			Prestamo prestamo = prestamoDAO.obtenerPrestamo(2);
 			prestamo.setObservacion("Test");
 			prestamoDAO.modificarPrestamo(prestamo);
@@ -109,11 +106,7 @@ public class PrestamoDAOHibernateTest {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para Eliminar un prestamo");
 		try {
-			Date date= new Date(1994,5,25);
-			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-			Prestamo prestamo = new Prestamo(2, date,new Time(0), new Time(0),new Time(0), 1, "", new Usuario(1036941185, 
-					new TipoDocumento("Cedula","")), new Dispositivo(2, "VideoBeam", "", 4, 4, new TipoDispositivo()));
+			Prestamo prestamo = prestamoDAO.obtenerPrestamo(2); 
 			prestamoDAO.eliminarPrestamo(prestamo);
 			assertNull(prestamoDAO.obtenerPrestamo(2));		
 		} catch (DAOException e) {
