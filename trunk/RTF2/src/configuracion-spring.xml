@@ -38,7 +38,7 @@
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
         <property name="sessionFactory" ref="sessionFactory"></property>
-    </bean>
+    </bean>     
     
     <bean id="dispositivoDAO" class="com.edu.udea.dao.hibernate.DispositivoDAOHibernate">
          <property name="sessionFactory" ref="sessionFactory"/>  
@@ -63,5 +63,9 @@
     <bean id="prestamoDAO" class="com.edu.udea.dao.hibernate.PrestamoDAOHibernate">
          <property name="sessionFactory" ref="sessionFactory"/>  
     </bean>
+    
+    <bean id="dispositivoBLImplements" class="com.edu.udea.bl.impl.DispositivoBLImplements">
+		<property name="dispositivoDAO" ref="dispositivoDAO"/>  
+    </bean>  
 
 </beans>
