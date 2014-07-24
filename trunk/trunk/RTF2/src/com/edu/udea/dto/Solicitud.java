@@ -2,7 +2,13 @@ package com.edu.udea.dto;
 
 import java.sql.Time;
 import java.util.Date;
-
+/**
+ * Clase que representa el pojo de solicitud del sistema, por tanto solo posee los metodos accesores y modificadores
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 public class Solicitud {
 
 	private int idSolicitud;

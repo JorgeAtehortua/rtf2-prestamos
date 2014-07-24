@@ -1,7 +1,13 @@
 package com.edu.udea.util.exception;
 
 import org.apache.log4j.Logger;
-
+/**
+ * Clase excepcion utilizada para controlar las excepciones que puedan ocurren en el dao, Hereda de excepcion
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */
 
 public class DAOException extends Exception {
 	

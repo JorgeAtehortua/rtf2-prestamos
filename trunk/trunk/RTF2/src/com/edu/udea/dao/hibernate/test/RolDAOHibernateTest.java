@@ -14,7 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.edu.udea.dao.RolDAO;
 import com.edu.udea.dto.Rol;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+* Clase cuyo objetivo es hacer los test de los metodos de la clase rolDaoHibernate
+* @author Cristian Fernando Ospina
+* @author David Alejandro Florez
+* @author Jason Angel
+*
+*/	
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
@@ -27,7 +33,10 @@ public class RolDAOHibernateTest {
 	
 	@Autowired
 	RolDAO rolDAO;
-	
+	/**
+	 * verifica a modo de test si el rol ha sido obtenido
+	 * @return Void
+	 */	
 	@Test
 	public void TestObtenerRol() {
 		System.out.println("__________________________________________________");
@@ -41,7 +50,10 @@ public class RolDAOHibernateTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si la lista de rols ha sido obtenida
+	 * @return Void
+	 */	
 	@Test
 	public void TestObtenerRoles() {
 		System.out.println("__________________________________________________");

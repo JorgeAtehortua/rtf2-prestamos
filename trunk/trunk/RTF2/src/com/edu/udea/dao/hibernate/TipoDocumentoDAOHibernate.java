@@ -11,9 +11,20 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.edu.udea.dao.TipoDocumentoDAO;
 import com.edu.udea.dto.TipoDocumento;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase que hereda de HibernateDaoSupport e implementa (sobrescribe) los metodos del dao del tipoDocumento
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 public class TipoDocumentoDAOHibernate extends HibernateDaoSupport implements TipoDocumentoDAO {
-
+	/**
+	 * Entrega los datos de un tipoDocumento dado su identificador
+	 * @param tipo String identificador del tipoDocumento
+	 * @return instancia con los datos del tipoDocumento obtenido, si no existe el tipoDocumento retorna null.
+	 * @throws DAOException
+	 */
 	@Override
 	public TipoDocumento obtenerTipoDocumento(String tipo) throws DAOException {
 		Session session = null;
@@ -26,7 +37,11 @@ public class TipoDocumentoDAOHibernate extends HibernateDaoSupport implements Ti
 		}
 		return tipoDocumento;
 	}
-
+	/**
+	 * Entrega la lista de todos los tipoDocumentos existentes en base de datos
+	 * @return lista tipoDocumentos
+	 * @throws DAOException
+	 */
 	@Override
 	public List<TipoDocumento> obtenerTipoDocumento() throws DAOException {
 		Session session = null;
@@ -40,7 +55,12 @@ public class TipoDocumentoDAOHibernate extends HibernateDaoSupport implements Ti
 		}
 		return tiposDocumento;
 	}
-
+	/**
+	 * Agrega un tipoDocumento
+	 * @param tipoDocumento tipoDocumento a agregar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void AgregarTipoDocumento(TipoDocumento tipo) throws DAOException {
 		Session session = null;
@@ -56,7 +76,12 @@ public class TipoDocumentoDAOHibernate extends HibernateDaoSupport implements Ti
 		
 		
 	}
-
+	/**
+	 * Elimina un tipoDocumento
+	 * @param tipoDocumento tipoDocumento a eliminar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void EliminarTipoDocumento(TipoDocumento tipo) throws DAOException {
 		Session session = null;
@@ -71,7 +96,12 @@ public class TipoDocumentoDAOHibernate extends HibernateDaoSupport implements Ti
 		}
 		
 	}
-
+	/**
+	 * Actualiza un tipoDocumento
+	 * @param tipoDocumento tipoDocumento a actualizar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void ActualizarTipoDocumento(TipoDocumento tipo) throws DAOException {
 		Session session = null;

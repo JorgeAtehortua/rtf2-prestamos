@@ -16,7 +16,13 @@ import com.edu.udea.bl.impl.UsuarioBLImplements;
 import com.edu.udea.dto.Dispositivo;
 import com.edu.udea.util.exception.BLException;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase cuyo objetivo es hacer los test de la logica del negocio en consideracion con el tipo de actor, esta clase corresponde al usuario
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -29,7 +35,10 @@ public class UsuarioBLImplementsTest {
 	
 	@Autowired
 	UsuarioBLImplements usuarioImpl;
-	
+	/**
+	 * verifica a modo de test si el dispositivo ha sido consultado
+	 * @return Void
+	 */	
 	@Test
 	public void test1ConsultarDispositivo() {
 		System.out.println("__________________________________________________");
@@ -44,7 +53,10 @@ public class UsuarioBLImplementsTest {
 			fail("Not yet implemented");
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si los dispositivos han consultados
+	 * @return Void
+	 */	
 	@Test
 	public void test2ConsultarDispositivos() {
 		System.out.println("__________________________________________________");

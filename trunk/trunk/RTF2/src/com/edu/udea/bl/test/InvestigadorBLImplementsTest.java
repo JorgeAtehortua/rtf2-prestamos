@@ -24,7 +24,13 @@ import com.edu.udea.dto.TipoDocumento;
 import com.edu.udea.dto.Usuario;
 import com.edu.udea.util.exception.BLException;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase cuyo objetivo es hacer los test de la logica del negocio en consideracion con el tipo de actor, esta clase corresponde al investigador
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -40,7 +46,10 @@ public class InvestigadorBLImplementsTest {
 	
 	@Autowired
 	InvestigadorBLImplements investigadorImpl;
-	
+	/**
+	 * verifica a modo de test si el dispositivo ha sido obtenido
+	 * @return Void
+	 */	
 	@Test
 	public void test1ConsultarDispositivo() {
 		System.out.println("__________________________________________________");
@@ -55,7 +64,10 @@ public class InvestigadorBLImplementsTest {
 			fail("Not yet implemented");
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si los dispositivos han sido obtenidos
+	 * @return Void
+	 */	
 	@Test
 	public void test2ConsultarDispositivos() {
 		System.out.println("__________________________________________________");
@@ -71,7 +83,10 @@ public class InvestigadorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si la solicitud ha sido obtenida
+	 * @return Void
+	 */	
 	@Test
 	public void test3ConsultarSolicitud() {
 		System.out.println("__________________________________________________");
@@ -88,7 +103,10 @@ public class InvestigadorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si las solicitudes han sido obtenidas
+	 * @return Void
+	 */	
 	@Test
 	public void test4ConsultarSolicitudes() {
 		System.out.println("__________________________________________________");
@@ -107,7 +125,10 @@ public class InvestigadorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si la solicitud ha sido creada
+	 * @return Void
+	 */	
 	@Test
 	public void test5CrearSolicitud() {
 		System.out.println("__________________________________________________");
@@ -123,7 +144,10 @@ public class InvestigadorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si la solicitud ha sido modificada
+	 * @return Void
+	 */	
 	@Test
 	public void test6ModificarSolicitud() {
 		System.out.println("__________________________________________________");
@@ -142,7 +166,10 @@ public class InvestigadorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si la solicitud ha sido eliminada
+	 * @return Void
+	 */	
 	@Test
 	public void test7EliminarSolicitud() {
 		System.out.println("__________________________________________________");

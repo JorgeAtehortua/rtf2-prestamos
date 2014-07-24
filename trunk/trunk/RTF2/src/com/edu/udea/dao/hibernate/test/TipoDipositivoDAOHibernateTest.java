@@ -15,7 +15,13 @@ import org.junit.runners.MethodSorters;
 import com.edu.udea.dao.TipoDispositivoDAO;
 import com.edu.udea.dto.TipoDispositivo;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase cuyo objetivo es hacer los test de los metodos de la clase tipodispositivoDaoHibernate
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -28,7 +34,10 @@ public class TipoDipositivoDAOHibernateTest {
 	
 	@Autowired
 	TipoDispositivoDAO tipoDispositivoDAO;
-	
+	/**
+	 * verifica a modo de test si el tipodispositivo ha sido obtenido
+	 * @return Void
+	 */
 	@Test
 	public void Test1ObtenerTipoDispositivo() {
 		System.out.println("__________________________________________________");
@@ -42,7 +51,10 @@ public class TipoDipositivoDAOHibernateTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si la lista de dispositivos ha sido obtenida
+	 * @return Void
+	 */
 	@Test
 	public void Test2ObtenerTiposDispositivos() {
 		System.out.println("__________________________________________________");
@@ -59,7 +71,10 @@ public class TipoDipositivoDAOHibernateTest {
 	}
 	
 	
-	
+	/**
+	 * verifica a modo de test si el tipodispositivo ha sido agregado
+	 * @return Void
+	 */
 	@Test
 	public void test3AgregarTipoDispositivo() {
 		System.out.println("__________________________________________________");
@@ -74,7 +89,10 @@ public class TipoDipositivoDAOHibernateTest {
 		}
 	}
 		
-	
+	/**
+	 * verifica a modo de test si el tipodispositivo ha sido actualizado
+	 * @return Void
+	 */
 	@Test
 	public void test4ActualizarTipoDispositivo(){ 
 		System.out.println("__________________________________________________");
@@ -90,7 +108,10 @@ public class TipoDipositivoDAOHibernateTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si el tipodispositivo ha sido eliminado
+	 * @return Void
+	 */
 	@Test
 	public void test5EliminarTipoDispositivo(){ 
 		System.out.println("__________________________________________________");

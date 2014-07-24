@@ -11,14 +11,27 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.edu.udea.dao.DispositivoDAO;
 import com.edu.udea.dto.Dispositivo;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase que hereda de HibernateDaoSupport e implementa (sobrescribe) los metodos del dao del dispositivo
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */
 public class DispositivoDAOHibernate extends HibernateDaoSupport implements DispositivoDAO{
-	
+	/**
+	 * constructor
+	 */
 	public DispositivoDAOHibernate() {
 		
 	}
-
-	@Override
+	/**
+	 * Entrega los datos de un dispositivo dado su identificador
+	 * @param id id identificador del dispositivo
+	 * @return instancia con los datos del dispositivo obtenido, si no existe el dispositivo retorna null.
+	 * @throws DAOException
+	 */
+	@Override	
 	public Dispositivo obtenerDispositivo(Integer id) throws DAOException {
 		Session session = null;
 		Dispositivo dispositivo = null;
@@ -32,7 +45,11 @@ public class DispositivoDAOHibernate extends HibernateDaoSupport implements Disp
 		}
 		return dispositivo;
 	}
-	
+	/**
+	 * Entrega la lista de todos los dispositivos existentes en base de datos
+	 * @return lista dispositivos
+	 * @throws DAOException
+	 */	
 	@Override
 	public List<Dispositivo> obtenerDispositivos() throws DAOException {
 		Session session = null;
@@ -48,7 +65,12 @@ public class DispositivoDAOHibernate extends HibernateDaoSupport implements Disp
 		}
 		return dispositivos;
 	}
-
+	/**
+	 * Agrega un dispositivo
+	 * @param dispositivo dispositivo a agregar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void agregarDispositivo(Dispositivo dispositivo) throws DAOException {
 		Session session = null;
@@ -63,7 +85,12 @@ public class DispositivoDAOHibernate extends HibernateDaoSupport implements Disp
 		}
 		
 	}
-
+	/**
+	 * Elimina un dispositivo
+	 * @param dispositivo dispositivo a eliminar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void eliminarDispositivo(Dispositivo dispositivo) throws DAOException {
 		Session session = null;
@@ -79,7 +106,12 @@ public class DispositivoDAOHibernate extends HibernateDaoSupport implements Disp
 		}
 		
 	}
-
+	/**
+	 * Actualiza un dispositivo
+	 * @param dispositivo dispositivo a actualizar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void actualizarDispositivo(Dispositivo dispositivo) throws DAOException {
 		Session session = null;

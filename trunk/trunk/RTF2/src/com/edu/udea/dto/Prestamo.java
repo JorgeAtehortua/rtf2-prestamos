@@ -2,7 +2,13 @@ package com.edu.udea.dto;
 
 import java.util.Date;
 import java.sql.Time;;
-
+/**
+ * Clase que representa el pojo de prestamo del sistema, por tanto solo posee los metodos accesores y modificadores
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 public class Prestamo {
 	
 	private int idPrestamo;
