@@ -1,5 +1,11 @@
 package com.edu.udea.dto;
-
+/**
+ * Clase que representa el pojo de rol del sistema, por tanto solo posee los metodos accesores y modificadores
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 public class Rol {
 	
 	private String rol;

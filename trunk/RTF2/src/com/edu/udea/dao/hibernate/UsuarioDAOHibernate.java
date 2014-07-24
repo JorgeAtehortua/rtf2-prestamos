@@ -12,9 +12,20 @@ import com.edu.udea.dao.UsuarioDAO;
 import com.edu.udea.dto.TipoDocumento;
 import com.edu.udea.dto.Usuario;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase que hereda de HibernateDaoSupport e implementa (sobrescribe) los metodos del dao del usuario
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioDAO {
-
+	/**
+	 * Agrega un usuario
+	 * @param usuario usuario a agregar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public Usuario obtenerUsuario(int numeroDocumento, TipoDocumento tipoDocumento)
 			throws DAOException {
@@ -28,7 +39,11 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		}
 		return usuario;
 	}
-
+	/**
+	 * Entrega la lista de todos los usuarios existentes en base de datos
+	 * @return lista usuarios
+	 * @throws DAOException
+	 */
 	@Override
 	public List<Usuario> obtenerUsuarios() throws DAOException {
 		Session session = null;
@@ -42,7 +57,12 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		}
 		return usuarios;
 	}
-
+	/**
+	 * Agrega un usuario
+	 * @param usuario usuario a agregar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void agregarUsuario(Usuario usuario) throws DAOException {
 		Session session = null;
@@ -57,7 +77,12 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		}	
 		
 	}
-
+	/**
+	 * Actualiza un usuario
+	 * @param usuario usuario a actualizar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void modificarUsuario(Usuario usuario) throws DAOException {
 		Session session = null;
@@ -72,7 +97,12 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		}
 		
 	}
-
+	/**
+	 * Elimina un usuario
+	 * @param usuario usuario a Eliminar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void eliminarUsuario(Usuario usuario) throws DAOException {
 		Session session = null;

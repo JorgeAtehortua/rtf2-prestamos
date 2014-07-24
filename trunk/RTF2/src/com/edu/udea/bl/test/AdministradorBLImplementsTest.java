@@ -24,7 +24,13 @@ import com.edu.udea.dto.TipoDocumento;
 import com.edu.udea.dto.Usuario;
 import com.edu.udea.util.exception.BLException;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase cuyo objetivo es hacer los test de la logica del negocio en consideracion con el tipo de actor, esta clase corresponde al administrador
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -37,7 +43,10 @@ public class AdministradorBLImplementsTest {
 	
 	@Autowired
 	AdministradorBLImplements administradorImp;
-	
+	/**
+	 * verifica a modo de test si el dispositivo ha sido consultado
+	 * @return Void
+	 */	
 	@Test
 	public void test1ConsultarDispositivo() {
 		System.out.println("__________________________________________________");
@@ -52,7 +61,10 @@ public class AdministradorBLImplementsTest {
 			fail("Not yet implemented");
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si el dispositivo ha sido consultado
+	 * @return Void
+	 */	
 	@Test
 	public void test2ConsultarDispositivos() {
 		System.out.println("__________________________________________________");
@@ -68,7 +80,10 @@ public class AdministradorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si el dispositivo ha sido creado
+	 * @return Void
+	 */	
 	@Test
 	public void test3CrearDispositivo() {
 		System.out.println("__________________________________________________");
@@ -85,7 +100,10 @@ public class AdministradorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test el dispositivo ha sido modificado
+	 * @return Void
+	 */	
 	@Test
 	public void test4ModificarDispositivo() {
 		System.out.println("__________________________________________________");
@@ -105,7 +123,10 @@ public class AdministradorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si el dispositivo ha sido eliminado
+	 * @return Void
+	 */	
 	@Test
 	public void test5EliminarDispositivo() {
 		System.out.println("__________________________________________________");
@@ -120,7 +141,10 @@ public class AdministradorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si la solicitud ha sido consultado
+	 * @return Void
+	 */	
 	@Test
 	public void test6ConsultarSolicitud() {
 		System.out.println("__________________________________________________");
@@ -137,7 +161,10 @@ public class AdministradorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si la solicitud ha sido consultada
+	 * @return Void
+	 */	
 	@Test
 	public void test7ConsultarSolicitudes() {
 		System.out.println("__________________________________________________");
@@ -156,7 +183,10 @@ public class AdministradorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si la solicitud ha sido consultado
+	 * @return Void
+	 */	
 	@Test
 	public void test8ConsultarPrestamo() {
 		System.out.println("__________________________________________________");
@@ -173,7 +203,10 @@ public class AdministradorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si el prestamo ha sido consultado
+	 * @return Void
+	 */	
 	@Test
 	public void test9ConsultarPrestamos() {
 		System.out.println("__________________________________________________");
@@ -191,7 +224,10 @@ public class AdministradorBLImplementsTest {
 		
 	}
 	
-	
+	/**
+	 * verifica a modo de test si el prestamo ha sido creado
+	 * @return Void
+	 */	
 	@Test
 	public void testACrearPrestamo() {
 		System.out.println("__________________________________________________");
@@ -208,7 +244,11 @@ public class AdministradorBLImplementsTest {
 		
 	}
 	@Test
-	public void testBModificarPrestamo() {
+	/**
+	 * verifica a modo de test si el prestamo ha sido creado
+	 * @return Void
+	 */	
+public void testBModificarPrestamo() {
 		System.out.println("__________________________________________________");
 		System.out.println("Test para Modificar un prestamo");
 		try {
@@ -224,7 +264,10 @@ public class AdministradorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si el prestamo ha sido eliminado
+	 * @return Void
+	 */	
 	@Test
 	public void testCEliminarPrestamo() {
 		System.out.println("__________________________________________________");
@@ -238,7 +281,10 @@ public class AdministradorBLImplementsTest {
 		}
 		
 	}
-	
+	/**
+	 * verifica a modo de test si el tipo de dispositivo ha sido consultado
+	 * @return Void
+	 */	
 	@Test
 	public void TestDConsultarTipoDispositivo() {
 		System.out.println("__________________________________________________");
@@ -252,7 +298,10 @@ public class AdministradorBLImplementsTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si el tipo de dispositivo ha sido obtenido
+	 * @return Void
+	 */	
 	@Test
 	public void TestEbtenerTiposDispositivos() {
 		System.out.println("__________________________________________________");
@@ -268,8 +317,10 @@ public class AdministradorBLImplementsTest {
 		}
 	}
 	
-	
-	
+	/**
+	 * verifica a modo de test si el tipo de dispositivo ha sido creado
+	 * @return Void
+	 */	
 	@Test
 	public void testFCrearTipoDispositivo() {
 		System.out.println("__________________________________________________");
@@ -283,7 +334,10 @@ public class AdministradorBLImplementsTest {
 		}
 	}
 		
-	
+	/**
+	 * verifica a modo de test si el tipo de dispositivo ha sido actualizado
+	 * @return Void
+	 */	
 	@Test
 	public void testGActualizarTipoDispositivo(){ 
 		System.out.println("__________________________________________________");
@@ -299,7 +353,10 @@ public class AdministradorBLImplementsTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si el tipo de dispositivo ha sido eliminado
+	 * @return Void
+	 */	
 	@Test
 	public void testHEliminarTipoDispositivo(){ 
 		System.out.println("__________________________________________________");

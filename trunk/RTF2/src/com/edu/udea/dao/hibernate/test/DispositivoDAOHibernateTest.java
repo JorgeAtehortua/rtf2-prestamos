@@ -16,7 +16,13 @@ import com.edu.udea.dao.DispositivoDAO;
 import com.edu.udea.dto.Dispositivo;
 import com.edu.udea.dto.TipoDispositivo;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase cuyo objetivo es hacer los test de los metodos de la clase dispositivoDaoHibernate
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -29,7 +35,10 @@ public class DispositivoDAOHibernateTest {
 	
 	@Autowired
 	DispositivoDAO dispositivoDao;
-	
+	/**
+	 * verifica a modo de test si el dispositivo ha sido obtenido
+	 * @return Void
+	 */	
 	@Test
 	public void test1ObtenerDispositivo() {
 		System.out.println("__________________________________________________");
@@ -44,7 +53,10 @@ public class DispositivoDAOHibernateTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si la lista de dispositivos ha sido obtenida
+	 * @return Void
+	 */
 	@Test
 	public void test2ObtenerDispositivos() {
 		System.out.println("__________________________________________________");
@@ -62,7 +74,10 @@ public class DispositivoDAOHibernateTest {
 	}
 	
 	
-					
+	/**
+	 * verifica a modo de test si el dispositivo ha sido agregado
+	 * @return Void
+	 */						
 	@Test
 	public void test3AgregarDispositivo() {
 		System.out.println("__________________________________________________");
@@ -77,7 +92,10 @@ public class DispositivoDAOHibernateTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si el dispositivo ha sido actualizado
+	 * @return Void
+	 */	
 	@Test
 	public void test4ActualizarDispositivo() {
 		System.out.println("__________________________________________________");
@@ -93,7 +111,10 @@ public class DispositivoDAOHibernateTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si el dispositivo ha sido eliminado
+	 * @return Void
+	 */	
 	@Test
 	public void test5EliminarDispositivo() {
 		System.out.println("__________________________________________________");

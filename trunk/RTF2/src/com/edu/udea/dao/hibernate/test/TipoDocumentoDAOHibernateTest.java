@@ -15,7 +15,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.edu.udea.dao.TipoDocumentoDAO;
 import com.edu.udea.dto.TipoDocumento;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase cuyo objetivo es hacer los test de los metodos de la clase tipodocumentoDaoHibernate
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -28,7 +34,10 @@ public class TipoDocumentoDAOHibernateTest {
 	
 	@Autowired
 	TipoDocumentoDAO tipoDocumentoDAO;
-	
+	/**
+	 * verifica a modo de test si el tipodocumento ha sido obtenido
+	 * @return Void
+	 */
 	@Test
 	public void test1ObtenerTipoDocumento() {
 		System.out.println("__________________________________________________");
@@ -42,7 +51,10 @@ public class TipoDocumentoDAOHibernateTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si la lista de documentos ha sido obtenida
+	 * @return Void
+	 */
 	@Test
 	public void test2ObtenerTiposDocumento() {
 		System.out.println("__________________________________________________");
@@ -58,7 +70,10 @@ public class TipoDocumentoDAOHibernateTest {
 		}
 	}
 	
-	
+	/**
+	 * verifica a modo de test si el tipodocumento ha sido agregado
+	 * @return Void
+	 */
 	@Test
 	public void test3AgregarTiposDocumento() {
 		System.out.println("__________________________________________________");
@@ -73,7 +88,10 @@ public class TipoDocumentoDAOHibernateTest {
 		}
 	}
 
-	
+	/**
+	 * verifica a modo de test si el tipodocumento ha sido actualizado
+	 * @return Void
+	 */
 	@Test
 	public void test4ModificarTiposDocumento() {
 		System.out.println("__________________________________________________");
@@ -89,7 +107,10 @@ public class TipoDocumentoDAOHibernateTest {
 		}
 	}
 	
-	
+	/**
+	 * verifica a modo de test si el tipodocumento ha sido eliminado
+	 * @return Void
+	 */
 	@Test
 	public void test5EliminarTiposDocumento() {
 		System.out.println("__________________________________________________");

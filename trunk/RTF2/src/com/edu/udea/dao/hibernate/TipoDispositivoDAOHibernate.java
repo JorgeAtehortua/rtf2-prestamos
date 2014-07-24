@@ -12,9 +12,20 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.edu.udea.dao.TipoDispositivoDAO;
 import com.edu.udea.dto.TipoDispositivo;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase que hereda de HibernateDaoSupport e implementa (sobrescribe) los metodos del dao del tipoDispositivo
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 public class TipoDispositivoDAOHibernate extends HibernateDaoSupport implements TipoDispositivoDAO{
-	
+	/**
+	 * Entrega los datos de un tipoDispositivo dado su identificador
+	 * @param tipoD String identificador del tipoDispositivo
+	 * @return instancia con los datos del tipoDispositivo obtenido, si no existe el tipoDispositivo retorna null.
+	 * @throws DAOException
+	 */
 	@Override
 	public TipoDispositivo obtenerTipoDispositivo(String tipoD)
 			throws DAOException {
@@ -28,7 +39,11 @@ public class TipoDispositivoDAOHibernate extends HibernateDaoSupport implements 
 		}
 		return tipoDispositivo;
 	}
-
+	/**
+	 * Entrega la lista de todos los tipoDispositivos existentes en base de datos
+	 * @return lista tipoDispositivos
+	 * @throws DAOException
+	 */
 	@Override
 	public List<TipoDispositivo> obtenerTiposDispositivos()
 			throws DAOException {
@@ -43,7 +58,12 @@ public class TipoDispositivoDAOHibernate extends HibernateDaoSupport implements 
 		}
 		return tiposDispositivos;
 	}
-
+	/**
+	 * Agrega un tipoDispositivo
+	 * @param tipoDispositivo tipoDispositivo a agregar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void agregarTipoDispositivo(TipoDispositivo tipoDispositivo)
 			throws DAOException {
@@ -59,7 +79,12 @@ public class TipoDispositivoDAOHibernate extends HibernateDaoSupport implements 
 		}
 		
 	}
-
+	/**
+	 * Elimina un tipoDispositivo
+	 * @param tipoDispositivo tipoDispositivo a eliminar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void eliminarTipoDispositivo(TipoDispositivo tipoDispositivo)
 			throws DAOException {
@@ -75,7 +100,12 @@ public class TipoDispositivoDAOHibernate extends HibernateDaoSupport implements 
 		}
 		
 	}
-
+	/**
+	 * Actualiza un tipoDispositivo
+	 * @param tipoDispositivo tipoDispositivo a actualizar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void actualizarTipoDispositivo(TipoDispositivo tipoDispositivo)
 			throws DAOException {

@@ -17,7 +17,13 @@ import com.edu.udea.dto.Rol;
 import com.edu.udea.dto.TipoDocumento;
 import com.edu.udea.dto.Usuario;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase cuyo objetivo es hacer los test de los metodos de la clase usuarioDaoHibernate
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:configuracion-spring.xml")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -30,7 +36,10 @@ public class UsuarioDAOHibernateTest {
 	
 	@Autowired
 	UsuarioDAO usuarioDAO; 
-	
+	/**
+	 * verifica a modo de test si el usuario ha sido obtenido
+	 * @return Void
+	 */
 	@Test
 	public void test1ObtenerUsuario() {
 		System.out.println("__________________________________________________");
@@ -44,7 +53,10 @@ public class UsuarioDAOHibernateTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si la lista de usuarios ha sido obtenida
+	 * @return Void
+	 */
 	@Test
 	public void test2ObtenerUsuarios() {
 		System.out.println("__________________________________________________");
@@ -60,7 +72,10 @@ public class UsuarioDAOHibernateTest {
 		}
 	}
 	
-	
+	/**
+	 * verifica a modo de test si el usuario ha sido agregado
+	 * @return Void
+	 */
 	@Test
 	public void test3AgrearUsuarios() {
 		System.out.println("__________________________________________________");
@@ -75,7 +90,10 @@ public class UsuarioDAOHibernateTest {
 		}
 	}
 	
-	
+	/**
+	 * verifica a modo de test si el usuario ha sido actualizado
+	 * @return Void
+	 */
 	@Test
 	public void test4ModificarUsuario() {
 		System.out.println("__________________________________________________");
@@ -90,7 +108,10 @@ public class UsuarioDAOHibernateTest {
 			fail(e.getMessage());
 		}
 	}
-	
+	/**
+	 * verifica a modo de test si el usuario ha sido eliminado
+	 * @return Void
+	 */
 	@Test
 	public void test5EliminarUsuario() {
 		System.out.println("__________________________________________________");

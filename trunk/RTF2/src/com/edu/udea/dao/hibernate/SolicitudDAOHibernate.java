@@ -11,9 +11,20 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.edu.udea.dao.SolicitudDAO;
 import com.edu.udea.dto.Solicitud;
 import com.edu.udea.util.exception.DAOException;
-
+/**
+ * Clase que hereda de HibernateDaoSupport e implementa (sobrescribe) los metodos del dao del solicitud
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 public class SolicitudDAOHibernate extends HibernateDaoSupport implements SolicitudDAO {
-
+	/**
+	 * Entrega los datos de un solicitud dado su identificador
+	 * @param tipoD String identificador del solicitud
+	 * @return instancia con los datos del solicitud obtenido, si no existe el solicitud retorna null.
+	 * @throws DAOException
+	 */
 	@Override
 	public Solicitud obtenerSolicitud(int id) throws DAOException {
 		Session session = null;
@@ -26,7 +37,11 @@ public class SolicitudDAOHibernate extends HibernateDaoSupport implements Solici
 		}
 		return solicitud;
 	}
-
+	/**
+	 * Entrega la lista de todos los solicituds existentes en base de datos
+	 * @return lista solicituds
+	 * @throws DAOException
+	 */
 	@Override
 	public List<Solicitud> obtenerSolicitudes() throws DAOException {
 		Session session = null;
@@ -40,7 +55,12 @@ public class SolicitudDAOHibernate extends HibernateDaoSupport implements Solici
 		}
 		return solicitudes;
 	}
-
+	/**
+	 * Agrega un solicitud
+	 * @param solicitud solicitud a agregar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void agregarSolicitud(Solicitud solicitud) throws DAOException {
 		Session session = null;
@@ -55,7 +75,12 @@ public class SolicitudDAOHibernate extends HibernateDaoSupport implements Solici
 		}
 		
 	}
-
+	/**
+	 * Elimina un solicitud
+	 * @param solicitud solicitud a eliminar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void modificarrSolicitud(Solicitud solicitud) throws DAOException {
 		Session session = null;
@@ -70,7 +95,12 @@ public class SolicitudDAOHibernate extends HibernateDaoSupport implements Solici
 		}
 		
 	}
-
+	/**
+	 * Actualiza un solicitud
+	 * @param solicitud solicitud a actualizar
+	 * @return void
+	 * @throws DAOException
+	 */
 	@Override
 	public void eliminarSolicitud(Solicitud solicitud) throws DAOException {
 		Session session = null;

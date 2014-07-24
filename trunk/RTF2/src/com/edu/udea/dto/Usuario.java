@@ -1,6 +1,12 @@
 package com.edu.udea.dto;
 import java.io.Serializable;
-
+/**
+ * Clase que representa el pojo de usuario del sistema, por tanto solo posee los metodos accesores y modificadores
+ * @author Cristian Fernando Ospina
+ * @author David Alejandro Florez
+ * @author Jason Angel
+ *
+ */	
 public class Usuario implements Serializable{
 	
 	private int numeroDocumento;
